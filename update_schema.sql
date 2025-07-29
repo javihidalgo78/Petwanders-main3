@@ -1,0 +1,1 @@
+ALTER TABLE `productos` ADD `amazon_url` VARCHAR(255) NULL DEFAULT NULL;

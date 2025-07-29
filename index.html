@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon shortcut" href="images/favicon.png" type="image/x-icon">
+  <title>PetWanders by JHL</title>
+  <link rel="stylesheet" href="css/estilospw2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+ <!-- Barra de navegación -->
+ 
+  <nav class="header">
+    <a href="index.html" class="nav-logo-link">
+      <img src="Images/LogoPW.JPEG" alt="Inicio" class="nav-logo">
+    </a>
+    <a href="#conocenos">Conócenos</a>
+    <a href="#tienda">Tienda</a>
+    <a href="#contacto">Contacto</a>
+    <a href="https://www.amazon.es/stores/PetWandersbyJHL/page/666D0FAD-15CE-44AF-AD5C-76B665011CE7?is_byline_deeplink=true&deeplink=666D0FAD-15CE-44AF-AD5C-76B665011CE7&redirect_store_id=666D0FAD-15CE-44AF-AD5C-76B665011CE7&lp_asin=B0F1V1VRL4&ref_=ast_bln" target="_blank">
+      <img src="images/amazon-icon.png" alt="Tienda Amazon" class="nav-amazon-logo">
+    </a>
+    <!-- Ícono del carrito -->
+  <div class="cart-icon" id="cart-icon">
+    <i class="fa fa-shopping-cart"></i>
+    <div class="cart-count" id="cart-count">0</div>
+  </div>
+  
+  <!-- Contenedor del carrito -->
+  <div class="cart-container" id="cart-container">
+    <div class="cart-header">
+      <h2>Tu Carrito</h2>
+      <div class="close-cart" id="close-cart"><i class="fa fa-times"></i></div>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- Los elementos del carrito se cargarán dinámicamente aquí -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total" id="cart-total">Total: 0.00€</div>
+      <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+    </div>
+  </div>
+  
+  <!-- Backdrop para cuando el carrito está abierto -->
+  <div class="backdrop" id="backdrop"></div>
+
+    <!-- Botón de Registro/Login -->
+    <div class="user-actions">
+      <button id="register-btn">Registro</button>
+      <button id="login-btn">Login</button>
+      <button id="logout-btn" style="display: none;">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Modal de Registro -->
+  <div id="register-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-register-modal" class="close-modal">&times;</span>
+      <h2>Registro de Nuevo Usuario</h2>
+      <form id="register-form">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="apellidos" placeholder="Apellidos" required>
+        <input type="email" name="email" placeholder="Correo Electrónico" required>
+        <input type="text" name="direccion" placeholder="Dirección" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Registrarse</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de Login -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-login-modal" class="close-modal">&times;</span>
+      <h2>Iniciar Sesión</h2>
+      <form id="login-form">
+        <input type="email" name="email" placeholder="Correo Electrónico" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+    </div>
+  </div>
+
+
+  <section class="contenido" id="conocenos">
+
+   <h1 class="typing-animation">Accesorios con estilo para tu mascota</h1>
+   <div class="slider">
+    
+		<img src="Images/Harness.JPEG" class="slide" alt="Imagen 1">
+		<img src="Images/Harness2.JPEG" class="slide active" alt="Imagen 2">
+		<img src="Images/Leashes.JPEG" class="slide" alt="Imagen 3">
+    <img src="Images/Harness4.JPEG" class="slide" alt="Imagen 4">
+    <img src="Images/Harnees5.JPEG" class="slide" alt="Imagen 5">
+    <img src="Images/Harness6.JPEG" class="slide" alt="Imagen 6">
+    <img src="Images/Fuenteblanca.JPEG" class="slide" alt="Imagen 7">
+    <img src="Images/Fuenteverde.JPEG" class="slide" alt="Imagen 8">
+    
+	  </div>
+  </section>
+    
+  
+  <section class="Tienda" id="tienda">
+    <div class="container">
+    
+
+ <h1>Nuestros accesorios y dispositivos están diseñados para el bienestar de tus mascotas</h1> 
+
+      <div class="filters-container">
+        <select id="category-filter">
+          <option value="">Todas las categorías</option>
+          <!-- Las categorías se cargarán aquí dinámicamente -->
+        </select>
+        <select id="sort-by-price">
+          <option value="">Ordenar por precio</option>
+          <option value="asc">Más barato primero</option>
+          <option value="desc">Más caro primero</option>
+        </select>
+        <label>
+          <input type="checkbox" id="availability-filter" checked>
+          Mostrar solo disponibles
+        </label>
+        <label>
+          <input type="checkbox" id="amazon-filter">
+          Disponible en Amazon
+        </label>
+        <button id="search-button">Buscar</button>
+      </div>
+
+      <div class="card-grid" id="productos-container">
+
+    </div>
+
+  <!-- Formulario de contacto -->
+  <div class="Contacto">
+  <section class="contacto" id="contacto">
+    <h3>Contacto</h3>
+    <form>
+      <input type="text" name="nombre" placeholder="Nombre y Apellidos" required />
+      <input type="email" name="email" placeholder="Correo Electrónico" required />
+      <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+  <div id="product-modal">
+  <div id="modal-content" class="modal-content">
+
+  </div>
+</div>
+
+  </div>
+<footer>
+  <p>&copy; 2024 PetWanders. Todos los derechos reservados.</p>
+     <div class="social-links">
+         <a href="https://Facebook.com/login/" aria-label="Facebook" target="_blank"><i class="fa fa-facebook-f"></i></a>
+         <a href="https://www.instagram.com/petwanders/"aria-label="Instagram" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+         <a href="https://x.com/?lang=es" aria-label="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        </div>
+
+</footer> 
+
+<!-- Enlace al JS -->
+<script type="module" src="js/productos.js"></script>
+<script type="module" src="js/funciones2.js"></script>
+<script type="module" src="js/login.js"></script>
+<!-- <script src="js/main.js"></script> -->
+  <!-- Enlace al JS -->
+
+</body>
+</html>

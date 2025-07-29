@@ -1,0 +1,704 @@
+/* Importar fuentes elegantes tipo handwriting de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Kaushan+Script&family=Great+Vibes&display=swap');
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e7ecf3;
+    margin: 0;
+    padding: 20px;
+    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.container {
+    max-width: 95%;
+    width: 95%;
+    margin: 2rem auto;
+    background-color: #ebe4e4;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Título con fuente handwriting elegante */
+.container h1 {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    color: #19351d;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+}
+
+/* Tabla */
+.tablaLibros {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    padding-top: 2rem;
+}
+
+.tablaLibros thead {
+    background-color: #ffcc80 !important;
+    color: #424242 !important;
+}
+
+/* Encabezados de tabla con fuente handwriting */
+.tablaLibros th {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.tablaLibros th, .tablaLibros td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternar colores de filas - ELIMINADO para que se vean los colores de columna */
+/* .tablaLibros tbody tr:nth-child(even) {
+    background-color: #fafafa;
+} */
+
+/* Colores de fondo para cada columna */
+.tablaLibros th:nth-child(1), .tablaLibros td:nth-child(1) {
+    background-color: #e8f4f8; /* Azul muy claro */
+}
+
+.tablaLibros th:nth-child(2), .tablaLibros td:nth-child(2) {
+    background-color: #f0f8e8; /* Verde muy claro */
+}
+
+.tablaLibros th:nth-child(3), .tablaLibros td:nth-child(3) {
+    background-color: #fff8e1; /* Amarillo muy claro */
+}
+
+.tablaLibros th:nth-child(4), .tablaLibros td:nth-child(4) {
+    background-color: #fce4ec; /* Rosa muy claro */
+}
+
+.tablaLibros th:nth-child(5), .tablaLibros td:nth-child(5) {
+    background-color: #f3e5f5; /* Púrpura muy claro */
+}
+
+.tablaLibros th:nth-child(6), .tablaLibros td:nth-child(6) {
+    background-color: #e0f2f1; /* Verde menta muy claro */
+}
+
+.tablaLibros th:nth-child(7), .tablaLibros td:nth-child(7) {
+    background-color: #fff3e0; /* Naranja muy claro */
+}
+
+.tablaLibros th:nth-child(8), .tablaLibros td:nth-child(8) {
+    background-color: #f1f8e9; /* Verde lima muy claro */
+}
+
+.tablaLibros th:nth-child(9), .tablaLibros td:nth-child(9) {
+    background-color: #e8eaf6; /* Índigo muy claro */
+}
+
+.tablaLibros th:nth-child(10), .tablaLibros td:nth-child(10) {
+    background-color: #fafafa; /* Gris muy claro */
+}
+
+/* Hover para todas las filas - debe ir DESPUÉS del nth-child para tener mayor especificidad */
+.tablaLibros tbody tr:hover {
+    background-color: #a1d22c !important;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover para todas las columnas - mantener colores de columna pero más intensos */
+.tablaLibros tbody tr:hover td:nth-child(1) { background-color: #b3d9e6 !important; }
+.tablaLibros tbody tr:hover td:nth-child(2) { background-color: #c8e6c9 !important; }
+.tablaLibros tbody tr:hover td:nth-child(3) { background-color: #fff59d !important; }
+.tablaLibros tbody tr:hover td:nth-child(4) { background-color: #f8bbd9 !important; }
+.tablaLibros tbody tr:hover td:nth-child(5) { background-color: #e1bee7 !important; }
+.tablaLibros tbody tr:hover td:nth-child(6) { background-color: #a7e0db !important; }
+.tablaLibros tbody tr:hover td:nth-child(7) { background-color: #ffcc80 !important; }
+.tablaLibros tbody tr:hover td:nth-child(8) { background-color: #dcedc8 !important; }
+.tablaLibros tbody tr:hover td:nth-child(9) { background-color: #c5cae9 !important; }
+.tablaLibros tbody tr:hover td:nth-child(10) { background-color: #e0e0e0 !important; }
+
+/* Estilos para las imágenes de los libros con efecto hover */
+.tablaLibros td img {
+    border-radius: 5px;
+    max-height: 170px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecto hover para ampliar las imágenes */
+.tablaLibros td img:hover {
+    transform: scale(2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    position: relative;
+}
+
+.header {
+    background-color: #007bff;
+
+}
+
+/* Celdas con datos especiales */
+.tablaLibros td:nth-child(6){
+    text-align: center;
+    color: #28a745;
+}
+
+.tablaLibros td:nth-child(7) {
+    color: #dc3545;
+}
+
+/* Resumen recortado */
+.tablaLibros td:last-child {
+    font-style: italic;
+    color: #555;
+}
+
+/* Estilos para botones */
+.tablaLibros button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin: 20px;
+
+}
+
+/* Botón Editar */
+.tablaLibros button:not(.btn-delete) {
+    background-color: #007bff;
+    color: white;
+}
+
+.tablaLibros button:not(.btn-delete):hover {
+    background-color: #0056b3;
+}
+
+/* Botón Eliminar */
+.tablaLibros .btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.tablaLibros .btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Centrar botones en sus celdas */
+.tablaLibros td:has(button) {
+    text-align: center;
+}
+
+/* Evitar que el hover afecte a las celdas con botones si se desea */
+.tablaLibros tbody tr:hover td:has(button) {
+    background-color: transparent;
+}
+
+/* Estilos generales para la barra de filtros */
+#filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+/* Estilo para el input de búsqueda */
+#busqueda {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 220px;
+    transition: border-color 0.3s;
+}
+
+#busqueda:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Estilos para los selectores de filtros */
+#filtroDisponibilidad,
+#filtroFavorito {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#filtroDisponibilidad:focus,
+#filtroFavorito:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Controles de paginación */
+#paginacion {
+    margin-top: 20px;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#paginacion button {
+    padding: 6px 12px;
+    border: 1px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+#paginacion button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+#paginacion button[style*="font-weight:bold"] {
+    background-color: #007bff;
+    color: white;
+}
+
+.panelCrear.btn-crear{
+text-align: right;
+padding: 6px 12px;
+border: 1px solid #007bff;
+background-color: white;
+color: #007bff;
+border-radius: 6px;
+cursor: pointer;
+font-weight: 500;
+transition: all 0.2s ease-in-out;
+}
+
+form {
+    max-width: 500px;
+    margin: 1rem auto;
+    background: #f8f8f8;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.checkbox {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     margin: 10px 0;
+}
+
+form input[type="checkbox"] {
+    margin-right: 5px;
+
+}
+
+.panelCrear.btn-crear {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+}
+
+.libro-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.libro-imagen img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.no-libros {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+/* Estilos para botones de búsqueda */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover:before {
+    left: 100%;
+}
+
+/* Botón primario (Buscar) */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a6fd8, #6a42a0);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Botón secundario (Limpiar) */
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #5a6268, #3d4142);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+/* Contenedor de botones */
+.search-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+/* Botones con iconos */
+.btn i {
+    font-size: 16px;
+}
+
+/* Efectos adicionales */
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Variante de botón con outline */
+.btn-outline-primary {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+    box-shadow: none;
+}
+
+.btn-outline-primary:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Botones de paginación */
+.pagination button {
+    padding: 10px 15px;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.pagination button.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .search-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+}
+
+/* Estilos para los filtros */
+.filtros-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.filtros-container h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #495057;
+    font-size: 1.2em;
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.filtro-item label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #495057;
+    font-size: 0.9em;
+}
+
+.filtro-item input,
+.filtro-item select {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.filtro-item input:focus,
+.filtro-item select:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.filtros-acciones {
+    text-align: center;
+}
+
+.btn-limpiar {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.btn-limpiar:hover {
+    background-color: #5a6268;
+}
+
+/* Estilos para la información de paginación */
+.info-paginacion {
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #495057;
+}
+
+/* Estilos para los controles de paginación */
+.paginacion-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.paginacion-container button {
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+    background-color: #fff;
+    color: #007bff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition:cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+
+/* Estilo base para botones */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón Cerrar Sesión */
+#cerrarSesion {
+    background-color: #f44336; /* Rojo suave */
+    color: white;
+    margin: 10px;
+}
+
+#cerrarSesion:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* Botón Crear Nuevo Libro */
+#crear {
+    background-color: #4CAF50; /* Verde suave */
+    color: white;
+    margin: 10px 0;
+}
+
+#crear:hover {
+    background-color: #388E3C;
+    transform: translateY(-2px);
+}
+
+/* Opcional: estilo general para mantener consistencia si usas más botones */
+.btn-crear, .btn-limpiar {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-limpiar {
+    background-color: #607D8B; /* Gris azulado */
+    color: white;
+}
+
+.btn-limpiar:hover {
+    background-color: #455A64;
+    transform: translateY(-2px);
+}
