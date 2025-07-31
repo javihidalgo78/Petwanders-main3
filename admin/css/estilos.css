@@ -7,7 +7,7 @@ body {
     background-color: #e7ecf3;
     margin: 0;
     padding: 20px;
-    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+    background-image: url('../../Images/huellas.jpg');
 }
 
 .container {
@@ -341,6 +341,10 @@ form input[type="checkbox"] {
     border: none;
     border-radius: 6px;
     cursor: pointer;
+}
+
+form button {
+    margin-top: 15px;
 }
 
 form button:hover {
@@ -701,4 +705,22 @@ button {
 .btn-limpiar:hover {
     background-color: #455A64;
     transform: translateY(-2px);
+}
+
+.btn-add {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #45a049;
+}
+
+.btn-cancel {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #da190b;
 }

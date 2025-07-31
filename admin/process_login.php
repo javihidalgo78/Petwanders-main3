@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['rol'] = $user['rol'];
 
             // Redirigir al panel de administración
-            header("Location: index.php");
+            header("Location: products/index.php");
             exit();
         } else {
             // Contraseña incorrecta o no es admin

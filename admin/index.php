@@ -19,9 +19,15 @@ if (empty($_SESSION['csrf_token'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Control</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+    body {
+         background-image: url('../Images/huellas.jpg');
+    }
+    </style>
 </head>
 <body>
+    
     <div class="container">
         <header>
             <h1>Panel de Control de la Tienda</h1>
