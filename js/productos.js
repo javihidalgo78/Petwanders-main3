@@ -1,3 +1,25 @@
+/**
+ * @file Contiene un array de objetos que representan los productos de la tienda.
+ * @description Este módulo exporta un array constante `productos` que sirve como una base de datos
+ * estática de los productos disponibles. Cada objeto en el array describe un producto en detalle.
+ *
+ * @typedef {object} Producto
+ * @property {string} id - Identificador único para el producto.
+ * @property {string} nombre - Nombre del producto.
+ * @property {string} descripcion - Breve descripción del producto.
+ * @property {number} precio - Precio del producto.
+ * @property {Array<string>} [tallas] - Tallas disponibles (opcional).
+ * @property {Array<string>} [capacidades] - Capacidades disponibles (opcional).
+ * @property {Array<string>} [colores] - Colores disponibles (opcional).
+ * @property {string} imagen - Ruta a la imagen del producto.
+ * @property {string} amazonUrl - URL de afiliado de Amazon para el producto.
+ * @property {string} features - Cadena de texto con las características principales del producto.
+ */
+
+/**
+ * @const {Producto[]} productos
+ * @description Array que contiene todos los objetos de los productos de la tienda.
+ */
 export const productos = [
   {
     id: "harness-mokka",

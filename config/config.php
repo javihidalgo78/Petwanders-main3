@@ -20,10 +20,10 @@ if (php_sapi_name() === 'cli' || $host === 'localhost' ||
 } else {
     //echo 'Entorno de producción en la nube';
     // Configuración para producción
-    define("DB_HOST","db5018152607.hosting-data.io");
-    define("DB_USER","dbu807028");
+    define("DB_HOST","db5018319723.hosting-data.io");
+    define("DB_USER","dbu1260009");
     define("DB_PASS","2102javI!");
-    define("DB_NAME","dbs14399144");
+    define("DB_NAME","dbs14514159");
     define('URL_ADMIN','http://www.javitxum.es/Petwanders/admin');
     define('BASE_URL', '/Petwanders/');
 }

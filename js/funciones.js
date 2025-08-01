@@ -1,4 +1,4 @@
-	import { productos } from './productos.js';
+import { productos } from './productos.js';
 
 
   const modal = document.getElementById('product-modal');
@@ -12,24 +12,35 @@
 		let currentSlide = 0;
 		const slides = document.querySelectorAll('.slider .slide');
 	  
+    /**
+     * @description Muestra la siguiente diapositiva en el carrusel.
+     * Oculta la diapositiva actual y muestra la siguiente en un ciclo.
+     */
 		function showNextSlide() {
 		  slides[currentSlide].classList.remove('active');
 		  currentSlide = (currentSlide + 1) % slides.length;
 		  slides[currentSlide].classList.add('active');
 		}
 	  
-		setInterval(showNextSlide, 6000); // Cambia cada 8 segundos
+		setInterval(showNextSlide, 6000); // Cambia cada 6 segundos
 
     // Funcionalidad del slider (código existente)
     document.addEventListener('DOMContentLoaded', function() {
       const slides = document.querySelectorAll('.slider .slide');
       let currentSlide = 0;
       
+      /**
+       * @description Muestra una diapositiva específica por su índice.
+       * @param {number} n - El índice de la diapositiva a mostrar.
+       */
       function showSlide(n) {
         slides.forEach(slide => slide.classList.remove('active'));
         slides[n].classList.add('active');
       }
       
+      /**
+       * @description Avanza a la siguiente diapositiva en el carrusel.
+       */
       function nextSlide() {
         currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
@@ -61,7 +72,10 @@
       // Carrito de compras
       let cart = [];
       
-      // Cargar carrito desde localStorage
+      /**
+       * @description Carga el carrito de compras desde el localStorage del navegador.
+       * Si existe un carrito guardado, lo parsea y actualiza la UI.
+       */
       function loadCart() {
         const savedCart = localStorage.getItem('petwandersCart');
         if (savedCart) {
@@ -70,12 +84,17 @@
         }
       }
       
-      // Guardar carrito en localStorage
+      /**
+       * @description Guarda el estado actual del carrito en el localStorage del navegador.
+       */
       function saveCart() {
         localStorage.setItem('petwandersCart', JSON.stringify(cart));
       }
       
-      // Actualizar la interfaz del carrito
+      /**
+       * @description Actualiza la interfaz de usuario del carrito.
+       * Renderiza los artículos, actualiza el contador y el total.
+       */
       function updateCartUI() {
         // Actualizar contador
         cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
@@ -144,7 +163,14 @@
         });
       }
       
-      // Añadir producto al carrito
+      /**
+       * @description Añade un producto al carrito o incrementa su cantidad si ya existe.
+       * @param {string} productId - ID del producto.
+       * @param {string} productName - Nombre del producto.
+       * @param {number} productPrice - Precio del producto.
+       * @param {string} productImage - URL de la imagen del producto.
+       * @param {string} productSize - Talla/opción seleccionada del producto.
+       */
       function addToCart(productId, productName, productPrice, productImage, productSize) {
         // Buscar si el producto ya está en el carrito con la misma talla
         const existingItemIndex = cart.findIndex(item => 
@@ -174,14 +200,20 @@
         showCart();
       }
       
-      // Aumentar cantidad
+      /**
+       * @description Aumenta la cantidad de un artículo en el carrito.
+       * @param {number} index - El índice del artículo en el array del carrito.
+       */
       function increaseQuantity(index) {
         cart[index].quantity += 1;
         updateCartUI();
         saveCart();
       }
       
-      // Disminuir cantidad
+      /**
+       * @description Disminuye la cantidad de un artículo. Si llega a 0, lo elimina.
+       * @param {number} index - El índice del artículo en el array del carrito.
+       */
       function decreaseQuantity(index) {
         if (cart[index].quantity > 1) {
           cart[index].quantity -= 1;
@@ -192,26 +224,33 @@
         saveCart();
       }
       
-      // Eliminar producto
+      /**
+       * @description Elimina un artículo del carrito.
+       * @param {number} index - El índice del artículo a eliminar.
+       */
       function removeItem(index) {
         cart.splice(index, 1);
         updateCartUI();
         saveCart();
       }
       
-      // Mostrar carrito
+      /**
+       * @description Muestra el contenedor del carrito y el fondo.
+       */
       function showCart() {
         cartContainer.classList.add('active');
         backdrop.classList.add('active');
       }
       
-      // Ocultar carrito
+      /**
+       * @description Oculta el contenedor del carrito y el fondo.
+       */
       function hideCart() {
         cartContainer.classList.remove('active');
         backdrop.classList.remove('active');
       }
       
-      // Event Listeners
+      // Event Listeners para abrir y cerrar el carrito
       cartIcon.addEventListener('click', showCart);
       closeCart.addEventListener('click', hideCart);
       backdrop.addEventListener('click', hideCart);
@@ -238,7 +277,7 @@
       });
 
       
-      // Función para finalizar compra
+      // Event Listener para el botón de finalizar compra
       checkoutBtn.addEventListener('click', function() {
         if (cart.length === 0) {
           alert('Tu carrito está vacío');
@@ -252,7 +291,7 @@
         hideCart();
       });
       
-      // Cargar carrito al iniciar
+      // Cargar carrito al iniciar la página
       loadCart();
     });
 
@@ -267,18 +306,17 @@
  */
 const contenedor = document.getElementById('productos-container');
 
+// Itera sobre el array de productos y los muestra en el contenedor principal.
 productos.forEach(producto => {
   contenedor.innerHTML += displayProduct(producto, false)
 });
 
 /**
- * 
- * @param {recibe un producto} producto 
- * @param {boolean} modal 
- * @returns html para mostrar el producto en pantalla
- * @description Distingue entre modal o escritorio para maquetar el producto
+ * @description Genera el HTML para un producto, distinguiendo entre la vista normal y la modal.
+ * @param {object} producto - El objeto del producto a mostrar.
+ * @param {boolean} modal - `true` si se debe renderizar para una vista modal.
+ * @returns {string} El string de HTML que representa la tarjeta del producto.
  */
-
 function displayProduct(producto, modal) {
   let opciones = [];
   let tipoSelect = "";
@@ -300,12 +338,9 @@ function displayProduct(producto, modal) {
 
   const amazonUrl = producto.amazonUrl || "https://www.amazon.com/s?k=" + encodeURIComponent(producto.nombre);
   
-  // Si estamos en la modal, mostramos las características, pero no la descripción
-  // Si no estamos en la modal, mostramos la descripción, pero no las características
   const descripcion = modal ? '' : `${producto.descripcion}`;
   const features = modal ? convertirFeaturesALista(producto.features) : "";
   
-  // Usar un ID único para el selector y el botón en la modal
   const selectId = modal ? `modal-size-select-${producto.id}` : `size-select-${producto.id}`;
   const buttonClass = modal ? "modal-add-to-cart-btn" : "add-to-cart-btn";
   
@@ -355,7 +390,7 @@ function displayProduct(producto, modal) {
   return cardHTML;
 }
 
-// Modificar el evento para cuando se hace clic en la imagen del producto
+// Event listener para mostrar el modal con detalles del producto.
 document.querySelectorAll('.show-product').forEach(enlace => {
   enlace.addEventListener('click', function () {
     const productId = this.dataset.productId;
@@ -368,7 +403,7 @@ document.querySelectorAll('.show-product').forEach(enlace => {
     document.getElementById("modal-content").innerHTML = boton + contenido;
     modal.style.display = 'flex';
     
-    // Agregar el evento al botón DESPUÉS de que se haya insertado en el DOM
+    // Añade el event listener al botón "Añadir al Carrito" del modal.
     const modalAddToCartBtn = document.querySelector('.modal-add-to-cart-btn');
     if (modalAddToCartBtn) {
       modalAddToCartBtn.addEventListener('click', function() {
@@ -377,7 +412,6 @@ document.querySelectorAll('.show-product').forEach(enlace => {
         const productPrice = parseFloat(this.dataset.productPrice);
         const productImage = this.dataset.productImg;
         
-        // Obtener talla/capacidad/color seleccionada usando el ID único del selector
         const sizeSelect = document.querySelector(`#modal-size-select-${productId}`);
         const productSize = sizeSelect ? sizeSelect.value : '';
         
@@ -386,16 +420,40 @@ document.querySelectorAll('.show-product').forEach(enlace => {
           return;
         }
         
-        // Asegurarnos de que estamos llamando a la función correcta
-        // Y que está definida en el ámbito adecuado
         if (typeof addToCart === 'function') {
           addToCart(productId, productName, productPrice, productImage, productSize);
-          modal.style.display = 'none'; // Cerrar modal tras añadir
+          modal.style.display = 'none'; // Cierra el modal después de añadir.
         } else {
           console.error('La función addToCart no está disponible');
         }
       });
     }
+
+    // Event listener para el botón de cerrar el modal.
+    document.querySelector('.close-modal').addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  });
+});
+
+
+/**
+ * *************FIN MOSTRAR PRODUCTOS EN VENTANA****************
+ */
+
+
+// Event listener para abrir el modal al hacer clic en la imagen del producto.
+document.querySelectorAll('.show-product').forEach(enlace => {
+  enlace.addEventListener('click', function () {
+    const productId = this.dataset.productId;
+    const producto = productos.find(p => p.id === productId);
+    
+    if (!producto) return;
+    const boton = `<span class="close-modal">&times;</span>`;
+    const contenido = displayProduct(producto, true);
+
+    document.getElementById("modal-content").innerHTML =  boton + contenido;
+    modal.style.display = 'flex';
 
     document.querySelector('.close-modal').addEventListener('click', () => {
       modal.style.display = 'none';
@@ -403,129 +461,15 @@ document.querySelectorAll('.show-product').forEach(enlace => {
   });
 });
 
-// function displayProduct(producto, modal){
-  
-//   let opciones = [];
-//   let tipoSelect = "";
-  
-//   if (producto.tallas) {
-//     opciones = producto.tallas;
-//     tipoSelect = "talla";
-//   } else if (producto.capacidades) {
-//     opciones = producto.capacidades;
-//     tipoSelect = "capacidad";
-//   } else if (producto.colores) {
-//     opciones = producto.colores;
-//     tipoSelect = "color";
-//   }
-  
-//   const opcionesHTML = opciones.map(opcion =>
-//     `<option value="${opcion}">${opcion}</option>`
-//   ).join("");
-
-//   const amazonUrl = producto.amazonUrl || "https://www.amazon.com/s?k=" + encodeURIComponent(producto.nombre);
-//   const descripcion = modal?'':`${producto.descripcion}`;
-//   const features = modal? convertirFeaturesALista(producto.features) : "";
-//   const cardHTML = `
-//     <div class="card">
-//     <a 
-//       data-product-id="${producto.id}"
-//       data-product-name="${producto.nombre}"
-//       data-product-price="${producto.precio}"
-//       data-product-img="${producto.imagen}"
-//       data-product-description="${producto.descripcion}"
-//      class="show-product">
-//     <img src="${producto.imagen}" alt="${producto.nombre}">
-//     </a>
-      
-//       <div>
-//         <h3>${producto.nombre}</h3>
-//         <p>${descripcion}</p>
-//         ${features}
-//         <div class="buy-options">
-//           <select class="size-select" data-product-id="${producto.id}">
-//             <option value="">Seleccionar ${tipoSelect}</option>
-//             ${opcionesHTML}
-//           </select>
-//           <button
-//             class="add-to-cart-btn"
-//             data-product-id="${producto.id}"
-//             data-product-name="${producto.nombre}"
-//             data-product-price="${producto.precio}"
-//             data-product-img="${producto.imagen}">
-//             Añadir al Carrito - ${producto.precio.toFixed(2)}€
-//           </button>
-//         </div>
-//         <div class="amazon-link">
-//           <a href="${amazonUrl}" target="_blank" rel="noopener noreferrer">
-//             <img src="images/amazon-icon.png" alt="Comprar en Amazon" title="Comprar en Amazon" class="amazon-icon">
-//           </a>
-//         </div>
-//       </div>
-//     </div>
-//   `;
-
-
-//   if(modal){
-//     // Añadir evento al botón de la modal
-// const addToCartBtnModal = document.querySelector('.add-to-cart-btn');
-// if (addToCartBtnModal) {
-//   addToCartBtnModal.addEventListener('click', function(e) {
-// console.log(e)
-//     const productId = this.dataset.productId;
-//     const productName = this.dataset.productName;
-//     const productPrice = parseFloat(this.dataset.productPrice);
-//     const productImage = this.dataset.productImg;
-//     // Obtener talla/capacidad/color seleccionada
-//     const sizeSelect = document.querySelector('.size-select[data-product-id="' + productId + '"]');
-//     const productSize = sizeSelect ? sizeSelect.value : '';
-//     if (!productSize) {
-//       alert('Por favor, selecciona una opción');
-//       return;
-//     }
-//     addToCart(productId, productName, productPrice, productImage, productSize);
-//     modal.style.display = 'none'; // Opcional: cerrar modal tras añadir
-//   });
-// }
-//   }
-//   return cardHTML;
-// }
-
-/**
- * *************FIN MOSTRAR PRODUCTOS EN VENTANA****************
- */
-
-
-// Elementos del producto en la modal
-
-  // Abrir modal al hacer clic en imagen
-  document.querySelectorAll('.show-product').forEach(enlace => {
-    enlace.addEventListener('click', function () {
-      const productId = this.dataset.productId;
-      const producto = productos.find(p => p.id === productId);
-      
-      if (!producto) return;
-      const boton = `<span class="close-modal">&times;</span>`;
-      const contenido = displayProduct(producto, true);
-
-      document.getElementById("modal-content").innerHTML =  boton + contenido;
-      modal.style.display = 'flex';
-      //TODO: crear evento para añadir al carrito
-
-      document.querySelector('.close-modal').addEventListener('click', () => {
+// Cierra el modal si se hace clic fuera de su contenido.
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
     modal.style.display = 'none';
-  });
-    });
-  });
-  
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
+  }
+});
 
 
-// También puedes cerrar el modal haciendo clic fuera del contenido
+// Cierra el modal si se hace clic fuera de su contenido.
 window.addEventListener("click", function(event) {
   const modal = document.getElementById("product-modal");
   if (event.target === modal) {
@@ -535,7 +479,11 @@ window.addEventListener("click", function(event) {
 
 
 
-// Función para convertir el texto de características en una lista HTML
+/**
+ * @description Convierte un string de características en una lista HTML.
+ * @param {string} featuresTexto - El texto de características, con cada una en una nueva línea precedida por "•".
+ * @returns {string} Un string de HTML con una lista `<ul>`.
+ */
 function convertirFeaturesALista(featuresTexto) {
   return `<ul class = "features">${
     featuresTexto
@@ -552,6 +500,10 @@ const modalAddToCartBtn = document.getElementById('modal-add-to-cart');
 
 const carrito = [];
 
+/**
+ * @description Agrega un artículo al carrito global `carrito`.
+ * @param {object} item - El artículo a agregar.
+ */
 function agregarAlCarrito(item) {
   const existente = carrito.find(p => p.id === item.id && p.opcion === item.opcion);
   if (existente) {
@@ -561,4 +513,3 @@ function agregarAlCarrito(item) {
   }
   console.log("Carrito actualizado:", carrito);
 }
-

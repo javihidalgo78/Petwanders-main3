@@ -1,4 +1,3 @@
-
 import { clearCart, loadCartFromData } from './funciones2.js';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -9,7 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeLoginModal = document.getElementById('close-login-modal');
     const loginForm = document.getElementById('login-form');
 
-    // Función para verificar el estado de la sesión
+    /**
+     * @description Verifica el estado de la sesión del usuario en `sessionStorage`.
+     * Muestra u oculta los botones de "Login", "Registro" y "Logout" según si el usuario ha iniciado sesión.
+     */
     function checkSession() {
         const userLoggedIn = sessionStorage.getItem('userLoggedIn');
         if (userLoggedIn) {
@@ -23,17 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Abrir el modal de login
+    // Event listener para abrir el modal de login al hacer clic en el botón.
     loginBtn.addEventListener('click', () => {
         loginModal.style.display = 'block';
     });
 
-    // Cerrar el modal de login
+    // Event listener para cerrar el modal de login.
     closeLoginModal.addEventListener('click', () => {
         loginModal.style.display = 'none';
     });
 
-    // Enviar el formulario de login
+    // Event listener para manejar el envío del formulario de login.
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(this);
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 checkSession();
                 loginModal.style.display = 'none';
                 alert('Inicio de sesión exitoso');
+                // Si el servidor devuelve un carrito, lo carga en la UI.
                 if (data.cart) {
                     localStorage.setItem('petwandersCart', JSON.stringify(data.cart));
                     loadCartFromData(data.cart);
@@ -60,14 +63,14 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error:', error));
     });
 
-    // Cerrar sesión
+    // Event listener para el botón de cerrar sesión.
     logoutBtn.addEventListener('click', () => {
         sessionStorage.removeItem('userLoggedIn');
         checkSession();
-        clearCart();
+        clearCart(); // Limpia el carrito de la UI y del almacenamiento local.
         alert('Has cerrado sesión');
     });
 
-    // Verificar el estado de la sesión al cargar la página
+    // Verifica el estado de la sesión al cargar la página para asegurar que la UI es correcta.
     checkSession();
 });

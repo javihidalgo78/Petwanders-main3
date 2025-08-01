@@ -1,0 +1,75 @@
+[31-Jul-2025 14:29:47 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'productos.categoria_id' in 'ON' in /homepages/21/d4299135752/htdocs/javivi/Petwanders/admin/products/index.php:103
+Stack trace:
+#0 /homepages/21/d4299135752/htdocs/javivi/Petwanders/admin/products/index.php(103): mysqli->query()
+#1 {main}
+  thrown in /homepages/21/d4299135752/htdocs/javivi/Petwanders/admin/products/index.php on line 103
+[01-Aug-2025 12:13:47 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:13:54 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:13:54 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:13:55 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:13:55 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:14:01 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:14:04 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:14:04 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:14:05 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:14:05 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:14:05 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:14:06 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:15:14 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83
+[01-Aug-2025 12:15:56 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Illegal mix of collations (utf32_spanish2_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '=' in C:\xampp\htdocs\Petwanders\admin\products\index.php:83
+Stack trace:
+#0 C:\xampp\htdocs\Petwanders\admin\products\index.php(83): mysqli->query('SELECT COUNT(DI...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Petwanders\admin\products\index.php on line 83

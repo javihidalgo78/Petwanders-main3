@@ -9,7 +9,12 @@ let cart = [];
 
 // PASO 3: Definir todas las funciones del carrito a nivel global
 
-// Cargar carrito desde el servidor o localStorage
+/**
+ * Carga el carrito de compras.
+ * Si el usuario ha iniciado sesión (verificado con sessionStorage), carga el carrito desde el servidor a través de 'get_cart.php'.
+ * De lo contrario, intenta cargarlo desde el localStorage del navegador.
+ * Después de cargar, actualiza la interfaz de usuario del carrito.
+ */
 function loadCart() {
     if (sessionStorage.getItem('userLoggedIn')) {
         fetch('get_cart.php')
@@ -27,7 +32,11 @@ function loadCart() {
     }
 }
 
-// Guardar carrito en el servidor o localStorage
+/**
+ * Guarda el estado actual del carrito.
+ * Si el usuario ha iniciado sesión, envía los datos del carrito al servidor ('save_cart.php') mediante una solicitud POST.
+ * Si no, guarda el carrito en el localStorage del navegador.
+ */
 function saveCart() {
     if (sessionStorage.getItem('userLoggedIn')) {
         fetch('save_cart.php', {
@@ -42,7 +51,12 @@ function saveCart() {
     }
 }
 
-// Actualizar la interfaz del carrito
+/**
+ * Actualiza la interfaz de usuario del carrito de compras.
+ * Muestra el número total de artículos, renderiza cada artículo en el carrito con sus detalles
+ * y botones de acción (aumentar, disminuir, eliminar).
+ * Calcula y muestra el precio total. Si el carrito está vacío, muestra un mensaje.
+ */
 function updateCartUI() {
   // Actualizar contador
   cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
@@ -92,7 +106,10 @@ function updateCartUI() {
   setupCartItemEventListeners();
 }
 
-// Configurar event listeners para los items del carrito
+/**
+ * Configura los event listeners para los botones de control de cantidad y eliminación
+ * dentro de cada artículo del carrito.
+ */
 function setupCartItemEventListeners() {
   document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
     btn.addEventListener('click', function() {
@@ -116,7 +133,17 @@ function setupCartItemEventListeners() {
   });
 }
 
-// Añadir producto al carrito
+/**
+ * Añade un producto al carrito.
+ * Si un producto con el mismo ID y talla ya existe, incrementa su cantidad.
+ * De lo contrario, añade el producto como un nuevo artículo.
+ * Finalmente, actualiza la UI, guarda el carrito y lo muestra.
+ * @param {string} productId - El ID del producto.
+ * @param {string} productName - El nombre del producto.
+ * @param {number} productPrice - El precio del producto.
+ * @param {string} productImage - La URL de la imagen del producto.
+ * @param {string} productSize - La talla u opción seleccionada para el producto.
+ */
 function addToCart(productId, productName, productPrice, productImage, productSize) {
   // Buscar si el producto ya está en el carrito con la misma talla
   const existingItemIndex = cart.findIndex(item => 
@@ -146,14 +173,21 @@ function addToCart(productId, productName, productPrice, productImage, productSi
   showCart();
 }
 
-// Aumentar cantidad
+/**
+ * Aumenta la cantidad de un artículo en el carrito.
+ * @param {number} index - El índice del artículo en el array del carrito.
+ */
 function increaseQuantity(index) {
   cart[index].quantity += 1;
   updateCartUI();
   saveCart();
 }
 
-// Disminuir cantidad
+/**
+ * Disminuye la cantidad de un artículo en el carrito.
+ * Si la cantidad es mayor que 1, la reduce. Si es 1, elimina el artículo del carrito.
+ * @param {number} index - El índice del artículo en el array del carrito.
+ */
 function decreaseQuantity(index) {
   if (cart[index].quantity > 1) {
     cart[index].quantity -= 1;
@@ -164,38 +198,57 @@ function decreaseQuantity(index) {
   saveCart();
 }
 
-// Eliminar producto
+/**
+ * Elimina un artículo del carrito por su índice.
+ * @param {number} index - El índice del artículo a eliminar.
+ */
 function removeItem(index) {
   cart.splice(index, 1);
   updateCartUI();
   saveCart();
 }
 
-// Limpiar el carrito
+/**
+ * Vacía completamente el carrito de compras.
+ * @export
+ */
 export function clearCart() {
   cart = [];
   updateCartUI();
   saveCart();
 }
 
+/**
+ * Carga datos de un carrito desde una fuente externa y actualiza la UI.
+ * @param {Array} cartData - Un array de objetos de artículos del carrito.
+ * @export
+ */
 export function loadCartFromData(cartData) {
     cart = cartData;
     updateCartUI();
 }
 
-// Mostrar carrito
+/**
+ * Muestra el contenedor del carrito y el fondo oscuro.
+ */
 function showCart() {
   cartContainer.classList.add('active');
   backdrop.classList.add('active');
 }
 
-// Ocultar carrito
+/**
+ * Oculta el contenedor del carrito y el fondo oscuro.
+ */
 function hideCart() {
   cartContainer.classList.remove('active');
   backdrop.classList.remove('active');
 }
 
-// Función para convertir el texto de características en una lista HTML
+/**
+ * Convierte una cadena de texto de características (separadas por saltos de línea y un punto) en una lista HTML `<ul>`.
+ * @param {string} featuresTexto - El texto con las características del producto.
+ * @returns {string} Una cadena HTML con la lista de características.
+ */
 function convertirFeaturesALista(featuresTexto) {
   return `<ul class="features">${
     featuresTexto
@@ -206,7 +259,13 @@ function convertirFeaturesALista(featuresTexto) {
   }</ul>`;
 }
 
-// Función para generar HTML de productos
+/**
+ * Genera el código HTML para mostrar un producto.
+ * Puede generar una vista de tarjeta estándar o una vista para un modal.
+ * @param {object} producto - El objeto del producto con sus detalles.
+ * @param {boolean} modal - Si es `true`, genera el HTML para la vista de modal.
+ * @returns {string} El código HTML de la tarjeta del producto.
+ */
 function displayProduct(producto, modal) {
   let opciones = [];
   let tipoSelect = "";
@@ -339,20 +398,16 @@ document.addEventListener('DOMContentLoaded', function() {
     hideCart();
   });
   
-  // Mostrar productos en la página
-  // const contenedor = document.getElementById('productos-container');
-  // if (contenedor) {
-  //   productos.forEach(producto => {
-  //     contenedor.innerHTML += displayProduct(producto, false);
-  //   });
-  // }
-  
   // Cargar categorías y productos
   const categoryFilter = document.getElementById('category-filter');
   const sortByPrice = document.getElementById('sort-by-price');
   const availabilityFilter = document.getElementById('availability-filter');
   const amazonFilter = document.getElementById('amazon-filter');
 
+  /**
+   * Obtiene los productos del servidor basándose en los filtros seleccionados
+   * y los muestra en la página.
+   */
   function fetchProducts() {
     const category = categoryFilter.value;
     const sortBy = sortByPrice.value;
@@ -402,6 +457,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
+  // Obtiene y popula las categorías de productos en el filtro.
   fetch('get_categories.php')
     .then(response => response.json())
     .then(data => {
@@ -415,14 +471,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const searchButton = document.getElementById('search-button');
 
-  // ... (código existente)
-
   searchButton.addEventListener('click', fetchProducts);
 
   // Carga inicial de productos
   fetchProducts();
 
-  // Usar delegación de eventos para todos los botones de "Añadir al carrito" (en la grilla y en la modal)
+  // Usa delegación de eventos para manejar los clics en "Añadir al carrito".
   document.addEventListener('click', function(e) {
     const button = e.target.closest('.add-to-cart-btn');
     if (!button) return;
@@ -432,9 +486,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const productPrice = parseFloat(button.dataset.productPrice);
     const productImage = button.dataset.productImg;
 
-    // Buscar el selector de talla/opción en el contexto del botón (card o modal)
     const context = button.closest('.card, .modal-content');
-    let productSize = 'N/A'; // Valor por defecto para productos sin opciones
+    let productSize = 'N/A'; 
 
     if (context) {
       const sizeSelect = context.querySelector('.size-select');
@@ -442,14 +495,13 @@ document.addEventListener('DOMContentLoaded', function() {
         productSize = sizeSelect.value;
         if (!productSize) {
           alert('Por favor, selecciona una opción');
-          return; // Detener si se requiere una opción pero no se ha seleccionado
+          return; 
         }
       }
     }
     
     addToCart(productId, productName, productPrice, productImage, productSize);
 
-    // Si el botón estaba en la modal, cerrarla después de añadir el producto
     if (button.closest('.modal-content')) {
       const modal = document.getElementById('product-modal');
       if (modal) {
@@ -458,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Configurar eventos para mostrar productos en modal
+  // Usa delegación de eventos para mostrar el modal de detalles del producto.
   document.addEventListener('click', function(e) {
     const showProductLink = e.target.closest('.show-product, .show-product-db');
     if (showProductLink) {
@@ -497,36 +549,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Cerrar modal haciendo clic fuera
+  // Cierra el modal si se hace clic fuera de su contenido.
   window.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.style.display = 'none';
     }
   });
   
-  // Cargar carrito al iniciar
+  // Carga el carrito al iniciar la página.
   loadCart();
 
-  // Funcionalidad de registro
+  // --- Funcionalidad de Registro ---
   const registerBtn = document.getElementById('register-btn');
   const registerModal = document.getElementById('register-modal');
   const closeRegisterModal = document.getElementById('close-register-modal');
   const registerForm = document.getElementById('register-form');
 
+  // Muestra el modal de registro.
   registerBtn.addEventListener('click', () => {
     registerModal.style.display = 'block';
   });
 
+  // Cierra el modal de registro con el botón de cerrar.
   closeRegisterModal.addEventListener('click', () => {
     registerModal.style.display = 'none';
   });
 
+  // Cierra el modal de registro si se hace clic fuera de él.
   window.addEventListener('click', (e) => {
     if (e.target === registerModal) {
       registerModal.style.display = 'none';
     }
   });
 
+  // Maneja el envío del formulario de registro.
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(registerForm);
